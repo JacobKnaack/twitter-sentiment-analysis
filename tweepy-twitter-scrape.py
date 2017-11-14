@@ -23,9 +23,9 @@ for hashtags in json_data['searchList']:
 
     for tweet in hashtagTweets:
         tweet_data[hashtags].append({
-            "Created At": tweet.created_at,
+            "Created At": tweet.created_at.isoformat(' '),
             "Text": tweet.text
         })
 
 with open('twitter-results.json', 'w') as fp:
-    json.dump(tweet_data, fp)
+    json.dump(tweet_data, fp, indent=2)
