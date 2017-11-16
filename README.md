@@ -6,6 +6,13 @@
 
 This is the beginning of this project. Currently the only useful module is the tweepy-twitter-scrapper
 
+#### Google Natural Language API
+
+This project uses the google cloud platform to sent requests to its natural language processing service.  For you to use this code you must create a project on Google's cloud platform and obtain the credentials necessary to making requests to Google's servers.  Here is a quick checklist you can use to get started:
+* Setting up a Google Cloud project
+* configuring your google cloud sdk
+* acquiring your authentication credentials
+
 #### Fetching tweets by hashtag:
 In order to grab tweets two things are required for the scrapper
 * the hashtags.json file must contain hashtags to search format

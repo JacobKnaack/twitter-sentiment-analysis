@@ -3,6 +3,10 @@
 
 # Config
 .config.json
+.google_env.sh
+google-app-service-credentials.json
+
+# tweet results from twitter
 twitter-results.json
 
 ### Python ###
