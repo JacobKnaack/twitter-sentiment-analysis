@@ -7,7 +7,9 @@
 google-app-service-credentials.json
 
 # tweet results from twitter
-twitter-results.json
+twitter-raw-scrape.json
+\#*
+\@*
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

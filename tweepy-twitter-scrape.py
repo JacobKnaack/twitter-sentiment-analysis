@@ -17,18 +17,18 @@ api = tweepy.API(auth)
 json_data=json.load(open('./hashtags.json'))
 tweet_data = {}
 
-for hashtags in json_data['searchList']:
-    tweet_data.update({hashtags: []})
-    hashtagTweets = tweepy.Cursor(api.search, q=hashtags, lang='en').items(100)
+for searchTerms in json_data['searchList']:
+    tweet_data.update({searchTerms: []})
+    tweets = tweepy.Cursor(api.search, q=searchTerms, lang='en').items(100)
 
-    for tweet in hashtagTweets:
+    for tweet in tweets:
         if (not tweet.retweeted) and ('RT @' not in tweet.text):
-           tweet_data[hashtags].append({
+           tweet_data[searchTerms].append({
                 "Created At": tweet.created_at.isoformat(' '),
                 "Text": tweet.text
             })
 
-with open('twitter-results.json', 'w') as fp:
+with open('results/twitter-raw-scrape.json', 'w') as fp:
     json.dump(tweet_data, fp, indent=2)
 
 print ('twitter results generated')
