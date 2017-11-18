@@ -1,5 +1,6 @@
 import tweepy
 import json
+import os
 from tweepy import OAuthHandler
 
 API_CONFIG = json.load(open('./.config.json'))
@@ -28,7 +29,10 @@ for searchTerms in json_data['searchList']:
                 "Text": tweet.text
             })
 
-with open('results/twitter-raw-scrape.json', 'w') as fp:
+if not os.path.exists('results/'):
+    os.makedirs('results/')
+
+with open('results/twitter-raw-scrape.json', 'w+') as fp:
     json.dump(tweet_data, fp, indent=2)
 
 print ('twitter results generated')
