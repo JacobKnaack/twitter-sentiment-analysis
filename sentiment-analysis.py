@@ -1,4 +1,5 @@
 import json
+import os
 
 from google.cloud import language
 from google.cloud.language import enums
@@ -10,7 +11,7 @@ def print_results(annotations):
     score = annotations.document_sentiment.score
     magnitude = annotations.document_sentiment.magnitude
 
-    for index, sentence in enumerate(annotations.sentence):
+    for index, sentence in enumerate(annotations.sentences):
         sentence_sentiment = sentence.sentiment.score
         print('Sentence {} has a sentiment score of {} '.format(index, sentence_sentiment))
 
@@ -29,16 +30,22 @@ def analyze(twitter_text_file):
         type = enums.Document.Type.PLAIN_TEXT)
     annotations = client.analyze_sentiment(document=document)
 
-    print_result(annotations)
+    print_results(annotations)
 
 
 if __name__ == '__main__':
     twitter_data = json.load(open('results/twitter-raw-scrape.json'))
 
     for searchTerm in twitter_data:
-        tweet_file = open('results/twitter-text/' + searchTerm + '.txt', 'w+')
-    
-        for tweet in twitter_data[searchTerm]:
-            tweet_file.write(str(tweet['Text']) + '\n')
+        txtPath = 'results/twitter-text/' + searchTerm
+        iterator = 0
 
-        analyze('./results/twitter-text/' + searchTerm + '.txt')
+        if not os.path.exists(txtPath):
+            os.makedirs(txtPath)
+
+        for tweet in twitter_data[searchTerm]:
+            tweet_file = open(txtPath + '/tweet_' + str(iterator) + '.txt', 'w+')
+            tweet_file.write(str(tweet['Text']))
+        
+            analyze(txtPath + '/tweet_' + str(iterator) + '.txt')
+            iterator += 1
