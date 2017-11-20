@@ -2,7 +2,7 @@
 
 ## Scrapes Twitter for tweets and provides Sentiment Analysis with Googles Cloud's Natural Language Processor
 
-Tweepy: <img src="https://readthedocs.org/projects/tweepy/badge/?version=v3.5.0">
+Tweepy: [<img src="https://readthedocs.org/projects/tweepy/badge/?version=v3.5.0" >](http://docs.tweepy.org/en/v3.5.0/)
 
 Google Cloud Platform [python documentation](https://github.com/GoogleCloudPlatform/google-cloud-python)
 
