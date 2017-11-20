@@ -3,12 +3,13 @@ import json
 import os
 from tweepy import OAuthHandler
 
-API_CONFIG = json.load(open('./.config.json'))
+if os.environ["API_KEY"] is None:
+    print ("Credentials not configured, please create a .env_config.sh file and export your API credentials.\n\n For help please visit https://github.com/JacobKnaack/twitter-sentiment-analysis")
 
-consumer_key = API_CONFIG["API_KEY"]
-consumer_secret = API_CONFIG["API_SECRET"]
-access_token = API_CONFIG["ACCESS_TOKEN"]
-access_secret = API_CONFIG["ACCESS_TOKEN_SECRET"]
+consumer_key = os.environ["API_KEY"]
+consumer_secret = os.environ["API_SECRET"]
+access_token = os.environ["ACCESS_TOKEN"]
+access_secret = os.environ["ACCESS_TOKEN_SECRET"]
 
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
@@ -20,7 +21,7 @@ tweet_data = {}
 
 for searchTerms in json_data['searchList']:
     tweet_data.update({searchTerms: []})
-    tweets = tweepy.Cursor(api.search, q=searchTerms, lang='en').items(100)
+    tweets = tweepy.Cursor(api.search, q=searchTerms, lang='en').items(5)
 
     for tweet in tweets:
         if (not tweet.retweeted) and ('RT @' not in tweet.text):

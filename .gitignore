@@ -2,8 +2,7 @@
 # Created by https://www.gitignore.io/api/vim,python
 
 # Config
-.config.json
-.google_env.sh
+.env_config.sh
 google-app-service-credentials.json
 
 # tweet results from twitter
