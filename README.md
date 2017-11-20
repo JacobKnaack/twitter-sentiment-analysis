@@ -64,7 +64,7 @@ Once this is set you can scrape twitter for your tweets
   ```
 
 
-  #### Run the main shell script:
-  ```
-  source main.sh
-  ```
+#### Run the main shell script:
+```
+source main.sh
+```
