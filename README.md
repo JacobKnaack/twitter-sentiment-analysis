@@ -6,6 +6,10 @@ Tweepy: [<img src="https://readthedocs.org/projects/tweepy/badge/?version=v3.5.0
 
 Google Cloud Platform [python documentation](https://github.com/GoogleCloudPlatform/google-cloud-python)
 
+### 3/22/2018
+
+* Beginning of front end client used to interface with python scripts.  Ignore npm scripts and node code if you just want to run python scripts to obtain tweet sentiment scores in a csv.
+
 ### 11/18/2017
 
 * Tweepy script working: Scrapes data from search terms, adds them to a folder called results.

@@ -1,0 +1,23 @@
+{
+  "name": "twitter-sentiment-analysis",
+  "version": "1.0.0",
+  "description": "Searches twitter for keywords using a front end client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobKnaack/twitter-sentiment-analysis.git"
+  },
+  "author": "Jacob Knaack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JacobKnaack/twitter-sentiment-analysis/issues"
+  },
+  "homepage": "https://github.com/JacobKnaack/twitter-sentiment-analysis#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "python-shell": "^0.5.0"
+  }
+}
